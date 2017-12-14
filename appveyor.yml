@@ -1,0 +1,17 @@
+install:
+  - choco install gitversion.portable -pre -y
+
+assembly_info:
+  patch: false
+
+before_build:
+  - nuget restore
+  - ps: gitversion /l console /output buildserver /updateAssemblyInfo
+
+build:
+  project: NHibernate.Logging.Serilog.sln
+
+after_build:
+  - cmd: ECHO nuget pack NHibernate.Logging.Serilog\NHibernate.Logging.Serilog.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
+  - cmd: nuget pack NHibernate.Logging.Serilog\NHibernate.Logging.Serilog.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
+  - cmd: appveyor PushArtifact "NHibernate.Logging.Serilog\NHibernate.Logging.Serilog.nuspec.%GitVersion_NuGetVersion%.nupkg"
