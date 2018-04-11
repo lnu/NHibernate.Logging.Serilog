@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersion" Version="3.6.5" />
+    <PackageReference Include="GitVersion" Version="3.6.5" PrivateAssets="All" />
     <PackageReference Include="NHibernate" Version="5.0.3" />
     <PackageReference Include="Serilog" Version="2.6.0" />
   </ItemGroup>
