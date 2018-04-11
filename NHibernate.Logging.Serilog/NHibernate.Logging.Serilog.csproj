@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="GitVersion" Version="4.0.0-beta0012" PrivateAssets="All" />
+    <PackageReference Include="GitVersionTask" Version="4.0.0-beta0012" PrivateAssets="All" />
     <PackageReference Include="NHibernate" Version="5.1.0" />
     <PackageReference Include="Serilog" Version="2.6.0" />
   </ItemGroup>
