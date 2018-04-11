@@ -3,9 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>NHibernate.Logging.Serilog</Description>
+    <Description>Serilog logging provider for NHibernate</Description>
     <Authors>lnu</Authors>
-    <PackageReleaseNotes>NHibernate.Logging.Serilog</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageTags>NHibernate Serilog Logging</PackageTags>
+    <PackageProjectUrl>https://github.com/lnu/NHibernate.Logging.Serilog</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
