@@ -1,18 +1,27 @@
+version: 1.0.{build}
+branches:
+  only:
+  - master
 image: Visual Studio 2017
+configuration: Release
 install:
-  - choco install gitversion.portable -pre -y
-
-assembly_info:
-  patch: false
-
+- cmd: choco install gitversion.portable -pre -y
 before_build:
-  - nuget restore
-  - ps: gitversion /l console /output buildserver /updateAssemblyInfo
+- cmd: >-
+    nuget restore
 
+    gitversion /l console /output buildserver /updateAssemblyInfo
 build:
-  project: NHibernate.Logging.Serilog.sln
-
-after_build:
-  - cmd: ECHO nuget pack NHibernate.Logging.Serilog\NHibernate.Logging.Serilog.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
-  - cmd: nuget pack NHibernate.Logging.Serilog\NHibernate.Logging.Serilog.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
-  - cmd: appveyor PushArtifact "NHibernate.Logging.Serilog\NHibernate.Logging.Serilog.nuspec.%GitVersion_NuGetVersion%.nupkg"
+  publish_nuget: true
+  publish_nuget_symbols: true
+  verbosity: normal
+artifacts:
+- path: '*.nupkg'
+  name: NuGet Package
+deploy:
+- provider: NuGet
+  api_key:
+    secure: k1LO5/Ap8IjBhpszOmEfhRdcpY3PI+6uPLaYufsA7L+J+Jctg1QXKTSAiCwC3fVO
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: True
