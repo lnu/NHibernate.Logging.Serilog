@@ -1,5 +1,5 @@
 # NHibernate.Logging.Serilog
-Serilog logger for NHibernate. Works only from NHibernate > 5.1.0(https://github.com/nhibernate/nhibernate-core/pull/1377)
+Serilog logger for NHibernate. Works only from NHibernate > [5.1.0](https://github.com/nhibernate/nhibernate-core/pull/1377)
 
 ### How-To
 Add this line to your code:   
