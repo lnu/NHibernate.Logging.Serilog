@@ -11,7 +11,7 @@ install:
 - cmd: choco install gitversion.portable -pre -y
 before_build:
 - cmd: >-
-    dotnet nuget restore
+    dotnet restore
 
     gitversion /l console /output buildserver /updateAssemblyInfo NHibernate.logging.serilog\AssemblyInfo.cs /ensureassemblyinfo
 build:

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Serilog logging provider for NHibernate</Description>
     <Authors>lnu</Authors>
@@ -15,9 +15,6 @@
     <PackageReference Include="NHibernate" Version="5.1.0" />
     <PackageReference Include="Serilog" Version="2.6.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All"/>
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
-    <PackageReference Include="GitVersion" Version="3.6.5" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
